@@ -1,0 +1,2 @@
+select first_name||' Hello '|| last_name||' Bye' as "Full Name"
+from employees;
