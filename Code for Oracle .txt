@@ -1,17 +1,36 @@
 select first_name||' Hello '|| last_name||' Bye' as "Full Name"
 from employees;
 
- Work of q'
+ Work of q' which use for single court in significant word.
 select department_name ||q'[Department's Manager id: ]'
 || manager_id
 as "Department and Manager"
 from departments;
 
 
-work of "distinct"
+work of "distinct" which omit same number or value.
+it only use for single row because it have to match all the value
 select  distinct department_id
 from employees;
 
 
 Code for finding Table
 describe employees;
+
+
+
+ORDER BY use for ascending and decending. ascending is defult system.
+but when we decending whe have to follow the rules which given below:
+select first_name, job_id, department_id
+FROM employees
+
+ORDER BY first_name desc;
+
+
+& is use for.....
+
+
+
+dual is use for imagination table. 
+for example: select colum name 
+from duel;
