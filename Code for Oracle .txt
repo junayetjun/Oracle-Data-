@@ -1,2 +1,17 @@
 select first_name||' Hello '|| last_name||' Bye' as "Full Name"
 from employees;
+
+ Work of q'
+select department_name ||q'[Department's Manager id: ]'
+|| manager_id
+as "Department and Manager"
+from departments;
+
+
+work of "distinct"
+select  distinct department_id
+from employees;
+
+
+Code for finding Table
+describe employees;
