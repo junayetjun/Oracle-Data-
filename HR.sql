@@ -1,4 +1,4 @@
-select first_name||' Hello '|| last_name||' Bye' as "Full Name"
+ cselect first_name||' Hello '|| last_name||' Bye' as "Full Name"
 from employees;
 
 select *
@@ -148,10 +148,39 @@ from employees;
 
 
 
+--02-03-25
+select last_name , salary ,
+to_char(salary*40,substr("BDT","$9,999,999.00"))as "Salary"
+from employees;
 
 
 
+SELECT last_name, salary,
+SUBSTR('BDT' || TO_CHAR(salary * 40, '9,999,999.00'), 1, 20) AS "Salary"
+FROM employees;
+ 
 
+
+--Class Test 2nd
+
+--Q--1
+select INITCAP (last_name), length(last_name)
+from employees
+where last_name like 'J%'
+or last_name like 'A%'
+or last_name like 'M%'
+order by last_name;
+
+
+--Q--2
+select last_name, salary,
+lpad(salary, 15, '$') as "Salary"
+from employees;
+
+
+--Q--3
+select last_name, salary, salary+(salary*3) as "Dream Salaries"
+from employees;
 
 
 
