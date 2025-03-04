@@ -218,6 +218,25 @@ WHERE SALARY < 10000;
 
 
 
+--CLASS DATE04-03-25
+select last_name, salary, department_id, region_id, country_id,  employee_id
+from employees 
+natural join departments 
+natural join regions
+natural join countries;
+
+
+
+
+select e.first_name, d.department_name, l.street_address, c.country_name
+from employees e
+join departments d on e.department_id = d.department_id
+join locations l on l.location_id = d.location_id
+join countries c on c.country_id = l.country_id;
+
+
+
+
 
 
 
