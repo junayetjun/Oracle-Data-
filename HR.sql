@@ -235,7 +235,92 @@ join locations l on l.location_id = d.location_id
 join countries c on c.country_id = l.country_id;
 
 
+--class test 4----
 
+ 
+
+create table emp (
+emp_id NUMBER(6) CONSTRAINT emp_id_pk PRIMARY KEY,
+name VARCHAR2(30)not null,
+salary number(8,2)not null,
+email VARCHAR2(25)not null,
+CONSTRAINT emp_email_unq UNIQUE(email)
+);
+
+
+
+
+create table emp_1287748 (
+eid number(6) CONSTRAINT emp_1287748_id_pk PRIMARY KEY,
+ename VARCHAR2(30) not null,
+salary number (8,2) not null,
+hire_date DATE not null,
+address varchar2(25) not null
+);
+
+ALTER TABLE emp_1287748 ADD(
+department_id NUMBER(6),
+department_name VARCHAR2(25)
+);
+
+INSERT into emp_1287748 values (1,'Junayet', 45000, '12-MAR-25', 'Shangkar ,Dhaka', 112, 'JAVA');
+INSERT into emp_1287748 values (2,'Istiaq', 35000, '12-MAR-25', 'Shangkar ,Dhaka', 112, 'JAVA');
+INSERT into emp_1287748 values (3,'Junu', 45000, '12-MAR-25', 'Shangkar ,Dhaka', 112, 'JAVA');
+INSERT into emp_1287748 values (4,'Samim', 45000, '12-MAR-25', 'Shangkar ,Dhaka', 112, 'JAVA');
+INSERT into emp_1287748 values (5,'Junayet Istiaq', 45000, '12-MAR-25', 'Shangkar ,Dhaka', 112, 'JAVA');
+
+
+
+
+select *
+from emp_1287748;
+
+select *
+from emp_1287748
+order by ename;
+
+
+
+
+
+
+select d.department_id,
+round(avg(e.salary)) as"Avg Salary"
+from employees e
+join departments d on e.department_id = d.department_id
+GROUP BY d.department_id
+HAVING MAX(e.salary)>12000;
+
+
+
+
+SELECT d.department_id, 
+ROUND(AVG(e.salary)) AS avg_salary
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+GROUP BY d.department_id
+HAVING MAX(e.salary) > 12000;
+
+
+
+select first_name
+from employees
+where first_name like 'S%'; 
+
+
+
+SELECT d.department_name, 
+ROUND(AVG(e.salary)) AS avg_salary
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+WHERE d.department_name = 'Sales'
+GROUP BY d.department_name;
+
+
+
+select last_name, hire_date 
+from employees
+order by hire_date;
 
 
 
