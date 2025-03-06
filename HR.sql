@@ -327,6 +327,59 @@ order by hire_date;
 
 
 
+--06-03-25
+
+CREATE table emppractice (
+e_id NUMBER(6) CONSTRAINT emppractice_id_pk PRIMARY key,
+first_name VARCHAR2(30),
+email VARCHAR2(25),
+phone NUMBER(14),
+subjuct VARCHAR2(15),
+constraint emppractice_email_unq unique (email)
+);
+alter table emppractice add(
+);
+
+INSERT INTO emppractice VALUES(101,'Samim Junayet Istiaq', 'junayet03@gmail.com', +8801515203269, 'Java' );
+
+select *
+from emppractice;
+
+
+describe emppractice;
+
+
+
+ SELECT UNIQUE department_id FROM employees WHERE
+last_name='Smith';
+
+
+SELECT employees.last_name, departments.department_name,
+departments.location_id
+FROM employees , departments 
+WHERE employees.department_id = departments.department_id;
+
+
+SELECT e.last_name, d.department_name, d.location_id FROM
+employees e, departments d
+WHERE e.department_id=d.department_id;\
+
+
+
+
+
+
+
+create table emp_1287748 (
+eid number(6) CONSTRAINT emp_1287748_id_pk PRIMARY KEY,
+ename VARCHAR2(30) not null,
+salary number (8,2) not null,
+hire_date DATE not null,
+address varchar2(25) not null
+);
+
+
+INSERT into emp_1287748 values (5,'Junayet Istiaq', 45000, '12-MAR-25', 'Shangkar ,Dhaka', 112, 'JAVA');
 
 
 
