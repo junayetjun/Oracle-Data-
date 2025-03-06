@@ -34,3 +34,11 @@ ORDER BY first_name desc;
 dual is use for imagination table. 
 for example: select colum name 
 from duel;
+
+
+
+
+
+PART----2
+DDL means data defination language +
+
