@@ -382,6 +382,24 @@ address varchar2(25) not null
 INSERT into emp_1287748 values (5,'Junayet Istiaq', 45000, '12-MAR-25', 'Shangkar ,Dhaka', 112, 'JAVA');
 
 
+--10-03-25
 
+select worker.last_name as "emp", manager.last_name as "mgr"
+from employees worker join employees manager 
+on (worker.manager_id = manager.employee_id); 
+
+
+select * 
+from job_grades ;
+
+
+
+
+select e.last_name, d.department_id ,d.department_name
+from employees e full outer join departments d 
+on (e.department_id = d.department_id);
+
+
+  
 
 
