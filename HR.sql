@@ -400,6 +400,65 @@ from employees e full outer join departments d
 on (e.department_id = d.department_id);
 
 
+
+--11-03-25
+select last_name , hire_date
+from employees
+where job_id = (select job_id 
+from employees 
+where last_name = 'Taylor');
+
+and salary >
+(select salary 
+from employees 
+where last_name= 'Taylor'
+);
+
+
+select employee_id, last_name, salary
+from employees 
+    where salary > (
+        select avg(salary) 
+            from employees 
+            ); 
+
+
+SELECT employee_id, last_name
+FROM employees
+where department_id in (
+        select department_id
+            from employees
+            where last_name like '%u%'
+            )
+            order by 2;             
+                                   
+            
+            
+select last_name, department_id, job_id
+from employees
+where department_id in (
+      select department_id
+       from departments
+        where location_id like 1700
+         )
+        order by 1;                
+                                        
+                    
+                    
+select last_name , salary 
+from employees
+where manager_id in (
+  select employee_id 
+  from employees
+    where last_name like 'King'
+     );
+                     
+                       
+            
+           
+
+
+
   
 
 
