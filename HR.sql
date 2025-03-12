@@ -453,7 +453,128 @@ where manager_id in (
     where last_name like 'King'
      );
                      
-                       
+--12-03-25
+
+select first_name, department_id, salary 
+from employees 
+where (salary,department_id) in 
+        (select min(salary), department_id 
+            from employees
+                group by department_id
+                )
+    order by department_id;     
+       
+ 
+     
+    
+--    question -1
+    
+SELECT department_id, MAX(salary) AS "Max Salary"
+FROM employees
+WHERE department_id IN (
+             SELECT department_id
+              FROM employees
+                GROUP BY department_id
+                 HAVING MAX(salary) > 10000
+                 )
+    GROUP BY department_id
+    order by 1;
+    
+    
+     SELECT * 
+     FROM DEPARTMENTS
+     WHERE DEPARTMENT_ID IN
+     ( SELECT DEPARTMENT_ID FROM EMPLOYEES
+       GROUP BY DEPARTMENT_ID
+         HAVING MAX(SALARY)>10000);
+
+
+
+--    question -2
+
+
+SELECT last_name, department_id
+FROM employees 
+WHERE manager_id IN(
+            SELECT employee_id
+             FROM employees 
+                WHERE last_name = 'Smith'
+                    );
+                    
+                    SELECT * 
+                    FROM DEPARTMENTS 
+                    WHERE MANAGER_ID IN
+                    (SELECT EMPLOYEE_ID 
+                    FROM EMPLOYEES 
+                    WHERE FIRST_NAME='SMITH');         
+                    
+         
+    --    question -3
+    
+    
+--    
+--    -SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID
+--NOT IN (SELECT EMPLOYEE_ID FROM JOB_HISTORY)
+
+        SELECT *  
+        FROM EMPLOYEES 
+        WHERE EMPLOYEE_ID NOT IN
+            (SELECT EMPLOYEE_ID 
+            FROM JOB_HISTORY);
+            
+            
+            
+                --    question -1
+                
+                
+--            select  last_name ,manager_id
+--            from employees
+--            where manager_id in(
+--            select employee_id 
+--            from employees            
+--            HAVING employee_id > 5);
+--            
+            
+            
+                        
+                        SELECT FIRST_NAME FROM EMPLOYEES
+                            WHERE EMPLOYEE_ID IN
+                                (SELECT MANAGER_ID FROM EMPLOYEES
+                                    GROUP BY MANAGER_ID
+                                        HAVING COUNT(*)>5);
+
+
+
+  --    question -2
+  
+   SELECT  *
+   FROM DEPARTMENTS
+   WHERE DEPARTMENT_ID NOT IN( 
+                        SELECT DEPARTMENT_ID
+                        FROM EMPLOYEES WHERE
+                            FLOOR((SYSDATE-HIRE_DATE)/365) < 2 );
+  
+  
+  
+
+  --    question -3
+  
+  select job_id
+  from job_history
+  where department_id IN(
+  select department_name
+  from departments
+  WHERE department_id = 'IT-PROG' );
+  
+     SELECT * FROM JOBS
+     WHERE JOB_ID IN
+     (SELECT JOB_ID 
+     FROM EMPLOYEES 
+     WHERE EMPLOYEE_ID IN
+        (SELECT EMPLOYEE_ID 
+        FROM JOB_HISTORY 
+        WHERE JOB_ID='IT_PROG'))
+
             
            
 
