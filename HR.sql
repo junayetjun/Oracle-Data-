@@ -574,6 +574,22 @@ WHERE manager_id IN(
         (SELECT EMPLOYEE_ID 
         FROM JOB_HISTORY 
         WHERE JOB_ID='IT_PROG'))
+        
+        
+        
+        
+--13-03-25
+CREATE TABLE emp (
+eid NUMBER(6) CONSTRAINT emp_id_pk primary key,
+ename VARCHAR2(30)not NULL,
+email varchar2 (25) constraint emp_email_unq unique, 
+department_id number(6)not NULL,
+department_name varchar2(10)
+);
+
+select * from emp;
+
+INSERT INTO emp values(1,'Istiaq', 'junayet@gmail.com',1001, 'JEE');
 
             
            
