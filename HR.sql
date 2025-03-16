@@ -593,6 +593,92 @@ INSERT INTO emp values(1,'Istiaq', 'junayet@gmail.com',1001, 'JEE');
 
             
            
+--16-03-25
+select * from emp;
+
+create SEQUENCE emp_eid_seq 
+            start WITH 5000
+            INCREMENT by 100
+            MAXVALUE 999999
+            NOCACHE
+            NOCYCLE;
+            
+            
+            drop SEQUENCE emp_eid_seq;
+            
+            
+            
+            
+            INSERT INTO emp VALUES(emp_eid_seq.nextval, 'Junayet', 'istiaq@gmail.com',1001,'JAVA');
+            INSERT INTO emp VALUES(emp_eid_seq.nextval, 'Samim', 'samim@gmail.com',1001,'NT');
+            INSERT INTO emp VALUES(emp_eid_seq.nextval, 'Istiaq', 'junayet@gmail.com',1001,'JEE');
+            
+            
+            TRUNCATE TABLE emp;
+            
+            
+            
+            
+            
+            
+            create view emp01 
+            as SELECT first_name||' '||last_name as "Full Name", salary, job_id
+            from employees;
+            
+            
+            select * from emp01;
+           
+
+--exam practice 16-03-25
+
+create table emp_12877(
+eid NUMBER(6) CONSTRAINT empid_pk primary key,
+e_name VARCHAR2(30),
+salary NUMBER(10),
+hire_date DATE,
+address varchar2(30)
+);
+
+
+
+ALTER TABLE emp_12877 add(
+department_id NUMBER(4),
+department_name varchar2(10));
+
+
+INSERT into emp_12877 values (101,'Samim', 900000, '21-Feb-1990','Mohammadpur,Dhaka', 111, 'JEE');
+INSERT into emp_12877 values (102,'Junayet', 950000, '21-Mar-1995','Mohammadpur,Dhaka', 122, 'JAVA');
+INSERT into emp_12877 values (103,'Istiaq', 800000, '21-Apr-1990','Mohammadpur,Dhaka', 133, 'JS');
+
+
+select * from emp_12877;
+
+
+select * from emp02;
+
+create view emp02 
+as select first_name, salary
+from employees
+where department_id = 80;
+
+
+
+
+
+create SEQUENCE emp12877_id_seq
+                start WITH 100
+                INCREMENT by 10
+                MAXVALUE 9999
+                NOCACHE
+                NOCYCLE;
+                
+                
+                
+INSERT INTO emp_12877
+(eid,e_name,salary,hire_date,address,department_id,department_name)
+SELECT employee_id, last_name, salary, hire_date,country_name, department_id, department_name
+FROM employees NATURAL JOIN departments NATURAL JOIN locations NATURAL JOIN countries
+WHERE department_id = 100;
 
 
 
