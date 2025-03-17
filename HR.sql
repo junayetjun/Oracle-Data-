@@ -680,7 +680,44 @@ SELECT employee_id, last_name, salary, hire_date,country_name, department_id, de
 FROM employees NATURAL JOIN departments NATURAL JOIN locations NATURAL JOIN countries
 WHERE department_id = 100;
 
+--17-03-25
 
+ select * from emp;
+ 
+ 
+ 
+ CREATE TABLE masud (
+ id number,
+ name VARCHAR2(30),
+ email VARCHAR2(35)
+ );
+ 
+ ALTER TABLE masud ADD(
+ hire_date date,
+ subject_name VARCHAR(20)
+ );
+ 
+ DESCRIBE masud;
+ 
+ select * from masud;
+ 
+ ALTER TABLE masud 
+ add CONSTRAINT mas_id_pk PRIMARY KEY (id);
+ 
+ 
+ 
+ ALTER TABLE masud
+ MODIFY name NUMBER (60);
+ 
+ 
+ ALTER TABLE masud
+ RENAME COLUMN name to userName;
+ 
+ 
+ 
+ 
+  
+  
 
   
 
